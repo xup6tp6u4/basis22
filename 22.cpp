@@ -1,0 +1,46 @@
+#include<stdio.h>
+struct Sertivor{
+    char id[20];
+    char name[20];
+    unsigned int  wage;
+    unsigned int  hour;
+    unsigned int  pay;
+};
+int salc(struct Sertivor *);  
+void show(struct Sertivor *);  
+int main(void){
+    int num;
+    int i;
+    struct Sertivor sertivor[4];
+    printf("有幾個工讀生?:");
+    scanf("%d", &num);
+    for(i=0;i<num;++i){
+        printf("這是第%d筆資料\n\n", i+1);
+        printf("請輸入 id:");
+        scanf("%s", sertivor[i].id);
+        printf("請輸入 name:");
+        scanf("%s", sertivor[i].name);
+        printf("請輸入 wage: ");
+        scanf("%d", &sertivor[i].wage);
+        printf("請輸入 hour:");
+        scanf("%d", &sertivor[i].hour);
+        salc(&sertivor[i]);
+    }
+    for(i=0;i<num;++i){
+    	show(&sertivor[i]);
+	}
+	return 0;
+}
+int salc(struct Sertivor *ser){ 
+    (ser->pay)=(ser->wage)*(ser->hour);
+    return ser->pay;
+}
+void show(struct Sertivor *show){ 
+    printf("\n\n%s的資料---------\n",show->name);
+    printf("ID:%s\n",show->id);
+    printf("姓名:%s\n",show->name);
+    printf("時薪:%d\n",show->wage);
+    printf("時數:%d\n",show->hour);
+    printf("薪水:%d\n",show->pay);
+    printf("-------------\n");
+}
